@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const Form = () => {
+const Form = ({setLyricsSearch}) => {
 
     const [search, setSearch] = useState({
         artist: '',
@@ -25,11 +25,12 @@ const Form = () => {
             return;
         }
         setError(false);
-
+        setLyricsSearch(search)
     }
 
     return (
         <div className="bg-info">
+            {error ? <p className="alert alert-danger text-center p-2">All Fields are required</p> : null}
             <div className="container">
                 <div className="row">
                     <form
